@@ -1,0 +1,295 @@
+/* ================= ROOT ================= */
+:root {
+  --bg: #f5f7fb;
+  --card: rgba(255, 255, 255, 0.6);
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: rgba(255, 255, 255, 0.3);
+
+  --gradient: linear-gradient(135deg, #6366f1, #22d3ee);
+
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow-hover: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+/* DARK MODE */
+body.dark {
+  --bg: #0b1220;
+  --card: rgba(17, 24, 39, 0.6);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: rgba(255,255,255,0.08);
+}
+
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ================= ANIMATED BACKGROUND ================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, #6366f120, transparent),
+              radial-gradient(circle at 80% 70%, #22d3ee20, transparent);
+  z-index: -1;
+}
+
+/* ================= HEADER ================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  backdrop-filter: blur(12px);
+}
+
+/* ================= HERO ================= */
+.hero {
+  text-align: center;
+  padding: 120px 20px 80px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.hero span {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin-top: 16px;
+  color: var(--muted);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================= BUTTON ================= */
+button {
+  margin-top: 25px;
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: none;
+  background: var(--gradient);
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+
+  box-shadow: var(--shadow-soft);
+}
+
+button:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* ================= INPUT ================= */
+.input-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+input {
+  padding: 12px;
+  width: 320px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
+
+/* ================= CARDS ================= */
+.card {
+  background: var(--card);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+}
+
+/* ================= GRID ================= */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+/* ================= SCORE ================= */
+.chart-container {
+  position: relative;
+  width: 200px;
+  margin: auto;
+}
+
+.score-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* ================= PROGRESS ================= */
+.score-item {
+  display: flex;
+  align-items: center;
+  margin: 14px 0;
+}
+
+.progress {
+  flex: 1;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+.progress div {
+  height: 100%;
+  width: 0%;
+  background: var(--gradient);
+  border-radius: 10px;
+}
+
+/* ================= INSIGHTS ================= */
+.insights ul {
+  margin-top: 10px;
+}
+
+.insights li {
+  margin: 8px 0;
+  color: var(--muted);
+}
+
+/* ================= ISSUE CARD ================= */
+.issue-card {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2);
+  font-size: 0.9rem;
+}
+
+/* ================= LOADER ================= */
+.loader {
+  border: 5px solid #ccc;
+  border-top: 5px solid #6366f1;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+
+/* ================= SKELETON LOADING ================= */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 37%,
+    #e5e7eb 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 10px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0 }
+  100% { background-position: -100% 0 }
+}
+
+/* ================= TOGGLE ================= */
+.switch {
+  width: 60px;
+  height: 30px;
+  position: relative;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  background: #d1d5db;
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+}
+
+.slider::before {
+  content: "🌙";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input:checked + .slider {
+  background: #6366f1;
+}
+
+input:checked + .slider::before {
+  transform: translateX(30px);
+  content: "☀️";
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+}
+
+/* ================= UTIL ================= */
+.hidden {
+  display: none;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  input {
+    width: 220px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}

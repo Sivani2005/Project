@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SEO Optimizer AI</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <h2>⚡ SEO Optimizer AI</h2>
+
+  <label class="switch">
+    <input type="checkbox" id="themeToggle">
+    <span class="slider"></span>
+  </label>
+</header>
+
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+
+  <h1>
+    Analyze. Optimize. <span>Dominate Search.</span>
+  </h1>
+
+  <p class="subtitle">
+    AI-powered website audit with real-time insights to boost your rankings,
+    performance, and user experience.
+  </p>
+
+  <button onclick="scrollToAnalyze()">🚀 Run Free AI Audit</button>
+
+</section>
+
+
+<!-- ================= ANALYZE ================= -->
+<section id="analyze" class="analyze">
+
+  <div class="input-box">
+    <input 
+      id="urlInput" 
+      type="url" 
+      placeholder="Enter website URL (https://...)" 
+      required
+    >
+    <button onclick="analyze()">Analyze</button>
+  </div>
+
+  <div id="loader" class="loader hidden"></div>
+  <p id="status"></p>
+
+</section>
+
+
+<!-- ================= RESULTS ================= -->
+<section id="results" class="hidden results">
+
+  <h2>SEO Dashboard</h2>
+
+  <div class="dashboard-grid">
+
+    <!-- SCORE -->
+    <div class="card">
+      <h3>Overall Score</h3>
+      <div class="chart-container">
+        <canvas id="scoreChart"></canvas>
+        <div id="scoreText" class="score-text">0%</div>
+      </div>
+    </div>
+
+    <!-- BAR -->
+    <div class="card">
+      <h3>Category Breakdown</h3>
+      <canvas id="barChart"></canvas>
+    </div>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="card">
+    <h3>Detailed Scores</h3>
+
+    <div class="score-item">
+      Content 
+      <div class="progress"><div id="contentBar"></div></div>
+      <span id="contentScore">0</span>
+    </div>
+
+    <div class="score-item">
+      SEO 
+      <div class="progress"><div id="seoBar"></div></div>
+      <span id="seoScore">0</span>
+    </div>
+
+    <div class="score-item">
+      Security 
+      <div class="progress"><div id="securityBar"></div></div>
+      <span id="securityScore">0</span>
+    </div>
+
+    <div class="score-item">
+      Frontend 
+      <div class="progress"><div id="frontendBar"></div></div>
+      <span id="frontendScore">0</span>
+    </div>
+  </div>
+
+  <!-- INSIGHTS -->
+  <div class="card">
+    <h3>AI Insights</h3>
+    <ul id="insightsList">
+      <li>✨ Insights will appear after analysis</li>
+    </ul>
+  </div>
+
+  <!-- ISSUES -->
+  <div class="card">
+    <h3>Detected Issues</h3>
+    <div id="issuesContainer">
+      <p>🔍 Issues will appear here after analysis</p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- JS -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

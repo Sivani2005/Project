@@ -6,7 +6,7 @@ from typing import List, Dict
 
 import requests
 from bs4 import BeautifulSoup
-from colorama import Fore, init
+from colorama import Fore, Style, init
 
 # Standard UTF-8 encoding support for Windows terminals
 if sys.platform == "win32":

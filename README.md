@@ -82,10 +82,7 @@ fin_project/
 * Scheduled scans
 * JS-rendered site support
 
----
 
-<div align="center">
 
 Built with ❤ using Flask & Python
 
-</div>
